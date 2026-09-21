@@ -185,6 +185,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
 /* ---------- Footer ---------- */
 .footer { padding: 32px 16px; background: var(--bg); border-top: 1px solid rgb(15 168 152 / .15); }
 .footer__inner { max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.footer__brand { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.footer__meta { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; font-size: 12px; line-height: 16px; font-weight: 700; color: #6b7280; }
+.footer__wa { color: var(--mint-dark); text-decoration: none; unicode-bidi: isolate; }
+.footer__wa:hover { text-decoration: underline; }
+.footer__wa:focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; }
 .badge { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 6px; background: #fff; border: 1px solid var(--card-border); box-shadow: var(--card-shadow); font-size: 12px; line-height: 16px; font-weight: 700; color: #6b7280; }
 .badge .ico { width: 14px; height: 14px; color: var(--mint); }
 
@@ -297,6 +302,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   /* Footer */
   .footer { padding: 40px 24px; }
   .footer__inner { flex-direction: row; justify-content: space-between; }
+  .footer__brand { align-items: flex-start; }
+  .footer__meta { justify-content: flex-start; }
 
   /* Lightbox */
   .lightbox { padding: 72px 24px 24px; }
@@ -307,6 +314,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .hero__inner { display: grid; grid-template-columns: repeat(12, 1fr); gap: 40px; align-items: center; }
   .hero__text { grid-column: span 5; }
   .hero__media { grid-column: span 7; margin: 0; }
+  .hero__text .cta .btn { gap: 8px; padding-inline: 12px; font-size: 16px; } /* narrow column: keep the WhatsApp label on one line */
+  .hero__text .cta .ico { width: 20px; height: 20px; }
   .features__grid { grid-template-columns: repeat(3, 1fr); }
   .card--wide { grid-column: span 3; width: 66.6667%; margin-inline: auto; }
 }

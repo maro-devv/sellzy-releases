@@ -8,6 +8,9 @@
   var waUrl = C.WHATSAPP_URL_BASE + C.WHATSAPP_NUMBER + '?text=' + encodeURIComponent(C.WHATSAPP_MESSAGE);
 
   document.querySelectorAll('[data-wa]').forEach(function (a) { a.href = waUrl; });
+  // Local display form of the WhatsApp number (201202191790 -> 01202191790), derived from config.js
+  var waLocal = '0' + String(C.WHATSAPP_NUMBER).replace(/^20/, '');
+  document.querySelectorAll('[data-wa-number]').forEach(function (a) { a.textContent = waLocal; });
   document.querySelectorAll('[data-download]').forEach(function (a) { a.href = C.DOWNLOAD_URL; });
 
   function formatPrice(n) {
@@ -95,7 +98,7 @@
             if (asset.name === C.RELEASE_ASSET_NAME) total += Number(asset.download_count) || 0;
           });
         });
-        document.getElementById('owner-count').textContent = String(total);
+        document.getElementById('owner-count').textContent = formatPrice(total);
         document.getElementById('owner-badge').hidden = false;
       })
       .catch(function () { /* on any failure show nothing */ });
