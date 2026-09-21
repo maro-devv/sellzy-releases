@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>سيلزي — برنامج كاشير ومخزون لمحلك</title>
+  <meta name="description" content="سيلزي برنامج كاشير ومخزون بيشتغل على ويندوز من غير إنترنت. جرّبه ١٠ أيام مجانًا.">
+  <meta name="theme-color" content="#E6F8F4">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_EG">
+  <meta property="og:title" content="سيلزي — برنامج كاشير ومخزون لمحلك">
+  <meta property="og:description" content="بيشتغل على ويندوز من غير إنترنت. جرّبه ١٠ أيام مجانًا.">
+  <!-- Absolute URL on purpose: link-preview crawlers don't run JS. The only URL outside config.js. -->
+  <meta property="og:image" content="https://maro-devv.github.io/sellzy-releases/img/hero_pos_full.png">
+  <meta property="og:image:width" content="1366">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="img/sellzy.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></symbol>
+    <symbol id="i-desktop" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5" d="M6 6l12 12M18 6L6 18"/></symbol>
+  </svg>
+
+  <!-- Desktop (>=900px): slim sticky top bar. Logo + the two buttons only, not a menu. -->
+  <header class="topbar" data-dl-scope>
+    <div class="topbar__inner">
+      <a href="#top" class="brand">
+        <img src="img/logo-mark-128.png" width="44" height="44" alt="" class="brand__mark">
+        <span class="brand__text">
+          <span class="brand__en">SELLZY</span>
+          <span class="brand__ar">سيلزي</span>
+        </span>
+      </a>
+      <div class="topbar__actions">
+        <a class="btn btn--download" data-download href="#"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>حمّل مجانًا</span></a>
+        <a class="btn btn--wa" data-wa href="#" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>تواصل واتساب</span></a>
+      </div>
+    </div>
+    <p class="confirm confirm--float" hidden>بدأ التحميل. لو ماحصلش، <a data-download data-retry href="#">دوس هنا</a></p>
+  </header>
+
+  <main id="top">
+
+    <!-- 1. Hero -->
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__text" data-dl-scope>
+          <img src="img/logo-mark-256.png" width="64" height="64" alt="شعار سيلزي" class="hero__logo">
+          <h1 class="hero__title">سيلزي — برنامج كاشير ومخزون لمحلك</h1>
+          <p class="hero__sub">بيشتغل على ويندوز من غير إنترنت. جرّبه ١٠ أيام مجانًا.</p>
+
+          <p class="notice" id="win-notice" hidden>
+            <svg class="ico" aria-hidden="true"><use href="#i-desktop"/></svg>
+            <span>البرنامج لأجهزة ويندوز. تقدر تحمّله هنا وتفتحه على الكمبيوتر.</span>
+          </p>
+
+          <div class="cta">
+            <a class="btn btn--download" data-download href="#"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>حمّل مجانًا</span></a>
+            <a class="btn btn--wa" data-wa href="#" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>تواصل واتساب</span></a>
+          </div>
+
+          <p class="confirm" hidden>
+            <svg class="ico confirm__ico" aria-hidden="true"><use href="#i-check"/></svg>
+            <span>بدأ التحميل. لو ماحصلش، <a data-download data-retry href="#">دوس هنا</a></span>
+          </p>
+        </div>
+
+        <div class="hero__media">
+          <div class="frame">
+            <div class="frame__inner">
+              <button type="button" class="zoom" data-full="img/hero_pos_full.png" data-alt="نقطة البيع" aria-label="تكبير صورة البرنامج">
+                <img src="img/hero_pos_full.png" width="1366" height="768" alt="شاشة نقطة البيع في سيلزي">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Features -->
+    <section class="features">
+      <div class="container">
+        <h2 class="h2 h2--start">مميزات برنامج سيلزي</h2>
+        <div class="features__grid">
+
+          <article class="card">
+            <div class="card__head">
+              <div class="card__title"><span class="chip">١</span><h3>نقطة البيع</h3></div>
+              <p>بيع بالباركود، واطبع الفاتورة، وسجّل المرتجعات.</p>
+            </div>
+            <div class="card__shot">
+              <button type="button" class="zoom" data-full="img/hero_pos_full.png" data-alt="نقطة البيع" aria-label="تكبير صورة نقطة البيع">
+                <img src="img/pos_card.png" width="1126" height="768" loading="lazy" alt="نقطة البيع">
+              </button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__head">
+              <div class="card__title"><span class="chip">٢</span><h3>الخزينة</h3></div>
+              <p>افتح وأقفل الوردية، وشوف الكاش اللي في الدرج في أي وقت.</p>
+            </div>
+            <div class="card__shot">
+              <button type="button" class="zoom" data-full="img/full/cash_full.png" data-alt="الخزينة" aria-label="تكبير صورة الخزينة">
+                <img src="img/cash_card.png" width="1126" height="500" loading="lazy" alt="الخزينة">
+              </button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__head">
+              <div class="card__title"><span class="chip">٣</span><h3>التقارير</h3></div>
+              <p>مبيعاتك بعد خصم المرتجعات، وتنبيه لما كمية منتج تقل.</p>
+            </div>
+            <div class="card__shot">
+              <button type="button" class="zoom" data-full="img/full/reports_full.png" data-alt="التقارير" aria-label="تكبير صورة التقارير">
+                <img src="img/reports_card.png" width="1126" height="390" loading="lazy" alt="التقارير">
+              </button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__head">
+              <div class="card__title"><span class="chip">٤</span><h3>الموظفين</h3></div>
+              <p>كل بيعة متسجلة باسم البائع.</p>
+            </div>
+            <div class="card__shot">
+              <button type="button" class="zoom" data-full="img/full/team_full.png" data-alt="الموظفين" aria-label="تكبير صورة الموظفين">
+                <img src="img/team_card.png" width="548" height="404" loading="lazy" alt="الموظفين">
+              </button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__head">
+              <div class="card__title"><span class="chip">٥</span><h3>البيع بالآجل</h3></div>
+              <p>سجّل العميل اللي اشترى آجل، وشوف كشف حسابه، واستلم دفعاته.</p>
+            </div>
+            <div class="card__shot">
+              <button type="button" class="zoom" data-full="img/full/credit_full.png" data-alt="البيع بالآجل" aria-label="تكبير صورة البيع بالآجل">
+                <img src="img/credit_card.png" width="1126" height="612" loading="lazy" alt="البيع بالآجل">
+              </button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__head">
+              <div class="card__title"><span class="chip">٦</span><h3>مقاسات وألوان</h3></div>
+              <p>منتج واحد بمقاسات وألوان كتير، والكمية متسجلة لكل تركيبة.</p>
+            </div>
+            <div class="card__shot">
+              <button type="button" class="zoom" data-full="img/full/matrix_full.png" data-alt="مقاسات وألوان" aria-label="تكبير صورة المقاسات والألوان">
+                <img src="img/matrix_card.png" width="748" height="420" loading="lazy" alt="مقاسات وألوان">
+              </button>
+            </div>
+          </article>
+
+          <article class="card card--wide">
+            <div class="card__head">
+              <div class="card__title"><span class="chip">٧</span><h3>الجرد</h3></div>
+              <p>عدّ البضاعة فعليًا، وقارنها بالسيستم، وصحّح الفروق.</p>
+            </div>
+            <div class="card__shot">
+              <button type="button" class="zoom" data-full="img/full/stocktake_full.png" data-alt="الجرد" aria-label="تكبير صورة الجرد">
+                <img src="img/stocktake_card.png" width="1126" height="656" loading="lazy" alt="الجرد">
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Pricing -->
+    <section class="pricing">
+      <div class="container container--narrow">
+        <h2 class="h2 h2--center">باقات الأسعار</h2>
+        <div class="pricing__grid">
+          <div class="price price--main">
+            <span class="price__tag">مرة واحدة، مدى الحياة</span>
+            <div class="price__num"><span data-price="lifetime"></span> <span class="price__cur">جنيه</span></div>
+          </div>
+          <div class="price">
+            <span class="price__tag">شهريًا</span>
+            <div class="price__num"><span data-price="monthly"></span> <span class="price__cur">جنيه</span></div>
+          </div>
+        </div>
+        <p class="pricing__note">بعد التجربة، التفعيل بيتم بالتواصل معايا على واتساب.</p>
+      </div>
+    </section>
+
+    <!-- 4. Free trial -->
+    <section class="trial" id="trial" data-dl-scope>
+      <div class="trial__inner">
+        <div class="trial__icon"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg></div>
+        <p class="trial__text">التجربة بتبدأ لوحدها أول ما تفتح البرنامج. ١٠ أيام بكل المميزات، من غير تسجيل ومن غير إنترنت.</p>
+        <div class="cta cta--trial">
+          <a class="btn btn--download" data-download href="#"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>حمّل مجانًا</span></a>
+          <a class="btn btn--wa" data-wa href="#" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>تواصل واتساب</span></a>
+        </div>
+        <p class="confirm confirm--dark" hidden>
+          <svg class="ico confirm__ico" aria-hidden="true"><use href="#i-check"/></svg>
+          <span>بدأ التحميل. لو ماحصلش، <a data-download data-retry href="#">دوس هنا</a></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- 5. FAQ -->
+    <section class="faq">
+      <div class="container container--faq">
+        <h2 class="h2 h2--center">الأسئلة الشائعة</h2>
+        <div class="faq__list">
+          <details class="qa" open>
+            <summary><span>هل يشتغل على الموبايل؟</span><span class="qa__arrow" aria-hidden="true">▼</span></summary>
+            <div class="qa__body">لأ، البرنامج لأجهزة ويندوز بس (كمبيوتر أو لاب توب).</div>
+          </details>
+          <details class="qa">
+            <summary><span>محتاج إنترنت؟</span><span class="qa__arrow" aria-hidden="true">▼</span></summary>
+            <div class="qa__body">لأ، البرنامج بيشتغل من غير إنترنت، وبياناتك محفوظة على جهازك انت بس.</div>
+          </details>
+          <details class="qa">
+            <summary><span>إزاي أفعّل بعد التجربة؟</span><span class="qa__arrow" aria-hidden="true">▼</span></summary>
+            <div class="qa__body">كلمني على واتساب وأنا هبعتلك مفتاح التفعيل.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 6. Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="brand brand--footer">
+        <img src="img/logo-mark-128.png" width="32" height="32" alt="" class="brand__mark">
+        <span class="brand__en">SELLZY</span>
+      </div>
+      <!-- Owner-only: stays hidden unless app.js finds the owner flag and the API call succeeds. -->
+      <div class="badge" id="owner-badge" hidden>
+        <svg class="ico" aria-hidden="true"><use href="#i-cloud"/></svg>
+        <span>التحميلات: <span id="owner-count"></span></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile (<900px): sticky bottom bar -->
+  <nav class="bottombar" aria-label="أزرار التحميل والتواصل" data-dl-scope>
+    <p class="confirm confirm--float" hidden>بدأ التحميل. لو ماحصلش، <a data-download data-retry href="#">دوس هنا</a></p>
+    <div class="bottombar__inner">
+      <a class="btn btn--download" data-download href="#"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>حمّل مجانًا</span></a>
+      <a class="btn btn--wa" data-wa href="#" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>تواصل واتساب</span></a>
+    </div>
+  </nav>
+
+  <!-- Image lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="عرض الصورة" hidden>
+    <button type="button" class="lightbox__close" id="lightbox-close" aria-label="إغلاق"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <img class="lightbox__img" id="lightbox-img" alt="">
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
