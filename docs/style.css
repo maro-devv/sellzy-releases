@@ -54,10 +54,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
   transition: background-color .15s, transform .1s;
 }
 .btn:active { transform: scale(.97); }
-.btn--download { background: var(--mint); }
+/* Primary CTA: solid fill, bolder weight. Secondary (WhatsApp): light fill + outline, same footprint. */
+.btn--download { background: var(--mint); font-weight: 800; }
 .btn--download:hover { background: var(--mint-dark); }
-.btn--wa { background: var(--wa); }
-.btn--wa:hover { background: var(--wa-dark); }
+.btn--wa { background: #fff; color: var(--wa-dark); border: 2px solid var(--wa); box-shadow: var(--shadow-sm); }
+.btn--wa:hover { background: rgb(37 211 102 / .08); border-color: var(--wa-dark); }
 .btn:focus-visible, .zoom:focus-visible, summary:focus-visible, .lightbox__close:focus-visible {
   outline: 3px solid var(--navy); outline-offset: 2px;
 }
@@ -162,6 +163,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .price--main .price__tag { background: var(--bg); color: var(--mint); }
 .price__num { font-size: 40px; line-height: 1.2; font-weight: 800; letter-spacing: -.025em; }
 .price__cur { font-size: 22px; font-weight: 700; color: rgb(15 26 43 / .7); letter-spacing: 0; }
+.price__badge { display: inline-block; margin-top: 12px; padding: 6px 16px; border-radius: 999px; background: #FEF3C7; color: #92400E; font-size: 12.5px; line-height: 18px; font-weight: 700; }
+.price__savings { margin-top: 12px; font-size: 13px; line-height: 1.5; font-weight: 600; color: rgb(15 26 43 / .75); }
 .pricing__note { margin-top: 16px; padding: 12px; text-align: center; background: #fff; border: 1px solid var(--card-border); border-radius: 12px; font-size: 14px; font-weight: 600; color: var(--navy); box-shadow: var(--card-shadow); }
 
 /* ---------- Free trial ---------- */
@@ -281,6 +284,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .price__tag { margin-bottom: 24px; }
   .price__num { font-size: 48px; margin-bottom: 8px; }
   .price__cur { font-size: 24px; }
+  .price__badge { font-size: 14px; margin-top: 16px; }
+  .price__savings { font-size: 14px; margin-top: 14px; }
   .pricing__note { margin: 0; padding: 0; background: none; border: 0; box-shadow: none; font-size: 16px; color: rgb(15 26 43 / .75); }
 
   /* Trial */

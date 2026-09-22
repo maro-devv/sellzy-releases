@@ -11,5 +11,9 @@ window.SELLZY_CONFIG = {
   RELEASE_ASSET_NAME: 'SellzySetup.exe',
 
   PRICE_LIFETIME: 4000,
-  PRICE_MONTHLY: 400
+  PRICE_MONTHLY: 400,
+
+  // Manual counters, not connected to any payment system — Marwan updates FOUNDING_OFFER_SOLD by hand after each lifetime sale closes.
+  FOUNDING_OFFER_TOTAL: 10,
+  FOUNDING_OFFER_SOLD: 2
 };

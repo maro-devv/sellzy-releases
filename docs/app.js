@@ -17,8 +17,20 @@
     return Number(n).toLocaleString('en-US', { useGrouping: false });
   }
   document.querySelectorAll('[data-price]').forEach(function (el) {
-    el.textContent = formatPrice(el.getAttribute('data-price') === 'lifetime' ? C.PRICE_LIFETIME : C.PRICE_MONTHLY);
+    var key = el.getAttribute('data-price');
+    var value = key === 'lifetime' ? C.PRICE_LIFETIME : key === 'yearly' ? C.PRICE_MONTHLY * 12 : C.PRICE_MONTHLY;
+    el.textContent = formatPrice(value);
   });
+
+  // ---------- Founding-offer scarcity badge (lifetime price card) ----------
+  var foundingBadge = document.getElementById('founding-badge');
+  if (foundingBadge) {
+    var foundingRemaining = C.FOUNDING_OFFER_TOTAL - C.FOUNDING_OFFER_SOLD;
+    if (foundingRemaining > 0) {
+      foundingBadge.textContent = 'عرض الإطلاق: متبقي ' + foundingRemaining + ' من ' + C.FOUNDING_OFFER_TOTAL + ' أماكن بسعر ' + formatPrice(C.PRICE_LIFETIME) + ' جنيه';
+      foundingBadge.hidden = false;
+    }
+  }
 
   // ---------- Download: never intercepted, only reveals the inline confirmation ----------
   var notice = document.getElementById('win-notice');
