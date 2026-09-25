@@ -18,17 +18,22 @@
   }
   document.querySelectorAll('[data-price]').forEach(function (el) {
     var key = el.getAttribute('data-price');
-    var value = key === 'lifetime' ? C.PRICE_LIFETIME : key === 'yearly' ? C.PRICE_MONTHLY * 12 : C.PRICE_MONTHLY;
+    var value = key === 'lifetimeOld' ? C.PRICE_LIFETIME_OLD : key === 'lifetime' ? C.PRICE_LIFETIME : key === 'yearly' ? C.PRICE_MONTHLY * 12 : C.PRICE_MONTHLY;
     el.textContent = formatPrice(value);
   });
 
-  // ---------- Founding-offer scarcity badge (lifetime price card) ----------
-  var foundingBadge = document.getElementById('founding-badge');
-  if (foundingBadge) {
+  // ---------- Founding-offer spots-remaining bar (lifetime price card) ----------
+  document.querySelectorAll('[data-founding-total]').forEach(function (el) { el.textContent = C.FOUNDING_OFFER_TOTAL; });
+  var foundingSpots = document.getElementById('founding-spots');
+  if (foundingSpots) {
     var foundingRemaining = C.FOUNDING_OFFER_TOTAL - C.FOUNDING_OFFER_SOLD;
     if (foundingRemaining > 0) {
-      foundingBadge.textContent = 'عرض الإطلاق: متبقي ' + foundingRemaining + ' من ' + C.FOUNDING_OFFER_TOTAL + ' أماكن بسعر ' + formatPrice(C.PRICE_LIFETIME) + ' جنيه';
-      foundingBadge.hidden = false;
+      foundingSpots.querySelector('[data-founding-remaining]').textContent = foundingRemaining;
+      var foundingTrack = document.getElementById('founding-track');
+      foundingTrack.setAttribute('aria-valuemax', C.FOUNDING_OFFER_TOTAL);
+      foundingTrack.setAttribute('aria-valuenow', foundingRemaining);
+      document.getElementById('founding-fill').style.width = (foundingRemaining / C.FOUNDING_OFFER_TOTAL * 100) + '%';
+      foundingSpots.hidden = false;
     }
   }
 

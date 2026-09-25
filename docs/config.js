@@ -10,6 +10,7 @@ window.SELLZY_CONFIG = {
   GITHUB_API_BASE: 'https://api.github.com/repos/',
   RELEASE_ASSET_NAME: 'SellzySetup.exe',
 
+  PRICE_LIFETIME_OLD: 5000,
   PRICE_LIFETIME: 4000,
   PRICE_MONTHLY: 400,
 

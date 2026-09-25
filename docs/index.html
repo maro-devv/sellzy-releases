@@ -195,14 +195,37 @@
         <h2 class="h2 h2--center">باقات الأسعار</h2>
         <div class="pricing__grid">
           <div class="price price--main">
+            <span class="price__ribbon">الأكثر توفيرًا</span>
             <span class="price__tag">مرة واحدة، مدى الحياة</span>
-            <div class="price__num"><span data-price="lifetime"></span> <span class="price__cur">جنيه</span></div>
-            <span class="price__badge" id="founding-badge" hidden></span>
-            <p class="price__savings">الاشتراك الشهري هيوصل معاك <span data-price="yearly"></span> جنيه في السنة. الدفعة الواحدة <span data-price="lifetime"></span> جنيه ومعاك مدى الحياة.</p>
+            <div class="price__row">
+              <del class="price__old"><span data-price="lifetimeOld"></span> جنيه</del>
+              <div class="price__num"><span data-price="lifetime"></span> <span class="price__cur">جنيه</span></div>
+            </div>
+            <p class="price__savings">الاشتراك الشهري هيوصل معاك <span data-price="yearly"></span> جنيه في السنة. لكن الدفعة الواحدة <span data-price="lifetime"></span> جنيه لأول <span data-founding-total></span> محلات بس، مدى الحياة، بدون أي مصاريف تركيب أو مصاريف خفية.</p>
+            <div class="spots" id="founding-spots" hidden>
+              <p class="spots__label"><span class="spots__dot" aria-hidden="true"></span><span>باقي <span data-founding-remaining></span> من <span data-founding-total></span> أماكن بس</span></p>
+              <div class="spots__track" id="founding-track" role="progressbar" aria-label="الأماكن المتبقية بسعر الإطلاق" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+                <div class="spots__fill" id="founding-fill"></div>
+              </div>
+              <div class="spots__scale" aria-hidden="true"><span><span data-founding-total></span> مقاعد</span><span>0 مقاعد</span></div>
+            </div>
+            <ul class="price__list">
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>تركيب وتشغيل البرنامج في محلك مجانًا</span></li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>تدريبك وتدريب البياعين على استخدام البرنامج</span></li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>ظبط الطابعة والباركود سكانر مع جهازك</span></li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>من غير أي مصاريف تانية أبدًا بعد كده</span></li>
+            </ul>
+            <a class="btn btn--download price__cta" data-wa href="#" target="_blank" rel="noopener noreferrer">احجز مكانك دلوقتي</a>
           </div>
           <div class="price">
             <span class="price__tag">شهريًا</span>
             <div class="price__num"><span data-price="monthly"></span> <span class="price__cur">جنيه</span></div>
+            <ul class="price__list">
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>نفس مميزات البرنامج بالكامل (نقطة البيع، الخزينة، التقارير، المخزون...) زي باقة الدفعة الواحدة تمامًا</span></li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>تحديثات ودعم فني طول فترة الاشتراك</span></li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>تقدر تترقّى لباقة الدفعة الواحدة في أي وقت وتوقف الاشتراك الشهري</span></li>
+            </ul>
+            <p class="price__fineprint">التركيب والتشغيل مش مشمولين — تقدر تركبها بنفسك (فيه شرح مبسط)، أو تطلب زيارة تركيب بسعر منفصل.</p>
           </div>
         </div>
         <p class="pricing__note">بعد التجربة، التفعيل بيتم بالتواصل معايا على واتساب.</p>
