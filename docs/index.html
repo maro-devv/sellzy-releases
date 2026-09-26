@@ -232,7 +232,33 @@
       </div>
     </section>
 
-    <!-- 4. Free trial -->
+    <!-- 4. Current customers -->
+    <section class="customers" id="customers">
+      <div class="container container--narrow">
+        <h2 class="h2 h2--center">عملاء حاليين</h2>
+        <div class="customers__gallery">
+          <div class="customers__main">
+            <img class="customers__main-item is-active" data-index="0" src="customer-media/customer-photo-1-counter.jpg" width="1200" height="2132" loading="lazy" alt="نقطة البيع في المحل شغالة بـ Sellzy">
+            <img class="customers__main-item" data-index="1" src="customer-media/customer-photo-3-storefront.jpg" width="1200" height="675" loading="lazy" alt="واجهة محل حقيقي بيستخدم Sellzy">
+            <video class="customers__main-item" data-index="2" src="customer-media/customer-video-clip.mp4" width="540" height="960" muted loop playsinline controls preload="metadata" poster="customer-media/customer-video-poster.jpg"></video>
+          </div>
+          <div class="customers__thumbs">
+            <button type="button" class="customers__thumb is-active" data-index="0" aria-label="عرض الصورة 1">
+              <img src="customer-media/customer-photo-1-counter.jpg" width="1200" height="2132" loading="lazy" alt="">
+            </button>
+            <button type="button" class="customers__thumb" data-index="1" aria-label="عرض صورة واجهة المحل">
+              <img src="customer-media/customer-photo-3-storefront.jpg" width="1200" height="675" loading="lazy" alt="">
+            </button>
+            <button type="button" class="customers__thumb" data-index="2" aria-label="تشغيل الفيديو">
+              <video src="customer-media/customer-video-clip.mp4" width="540" height="960" muted preload="metadata" poster="customer-media/customer-video-poster.jpg"></video>
+              <span class="customers__play" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Free trial -->
     <section class="trial" id="trial" data-dl-scope>
       <div class="trial__inner">
         <div class="trial__icon"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg></div>
@@ -248,7 +274,7 @@
       </div>
     </section>
 
-    <!-- 5. FAQ -->
+    <!-- 6. FAQ -->
     <section class="faq">
       <div class="container container--faq">
         <h2 class="h2 h2--center">الأسئلة الشائعة</h2>

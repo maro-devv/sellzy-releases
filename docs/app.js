@@ -156,4 +156,29 @@
     if (e.key === 'Escape') closeLightbox();
     else if (e.key === 'Tab') { e.preventDefault(); closeBtn.focus(); } // the close button is the only focusable element
   });
+
+  // ---------- Current customers gallery (click a thumbnail to view it large; no auto-advance) ----------
+  var customersGallery = document.querySelector('.customers__gallery');
+  if (customersGallery) {
+    var customersMainItems = Array.prototype.slice.call(customersGallery.querySelectorAll('.customers__main-item'));
+    var customersThumbs = Array.prototype.slice.call(customersGallery.querySelectorAll('.customers__thumb'));
+
+    function selectCustomerMedia(index) {
+      customersMainItems.forEach(function (item, i) {
+        var active = i === index;
+        item.classList.toggle('is-active', active);
+        if (item.tagName === 'VIDEO') {
+          if (active) { item.currentTime = 0; var p = item.play(); if (p && p.catch) p.catch(function () {}); }
+          else { item.pause(); }
+        }
+      });
+      customersThumbs.forEach(function (t, i) { t.classList.toggle('is-active', i === index); });
+    }
+
+    customersThumbs.forEach(function (thumb) {
+      thumb.addEventListener('click', function () {
+        selectCustomerMedia(Number(thumb.getAttribute('data-index')));
+      });
+    });
+  }
 })();
