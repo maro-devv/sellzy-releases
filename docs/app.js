@@ -7,7 +7,11 @@
   // ---------- Links and prices, all built from config.js ----------
   var waUrl = C.WHATSAPP_URL_BASE + C.WHATSAPP_NUMBER + '?text=' + encodeURIComponent(C.WHATSAPP_MESSAGE);
 
-  document.querySelectorAll('[data-wa]').forEach(function (a) { a.href = waUrl; });
+  // data-wa-text (optional) replaces the default message, e.g. the per-device order buttons
+  document.querySelectorAll('[data-wa]').forEach(function (a) {
+    var text = a.getAttribute('data-wa-text');
+    a.href = text ? C.WHATSAPP_URL_BASE + C.WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text) : waUrl;
+  });
   // Local display form of the WhatsApp number (201202191790 -> 01202191790), derived from config.js
   var waLocal = '0' + String(C.WHATSAPP_NUMBER).replace(/^20/, '');
   document.querySelectorAll('[data-wa-number]').forEach(function (a) { a.textContent = waLocal; });

@@ -182,6 +182,27 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .price__savings { margin-top: 12px; font-size: 13px; line-height: 1.5; font-weight: 600; color: rgb(15 26 43 / .75); }
 .pricing__note { margin-top: 16px; padding: 12px; text-align: center; background: #fff; border: 1px solid var(--card-border); border-radius: 12px; font-size: 14px; font-weight: 600; color: var(--navy); box-shadow: var(--card-shadow); }
 
+/* ---------- Optional add-ons ---------- */
+.devices { padding: 32px 0; }
+.devices .h2 { margin-bottom: 6px; }
+.devices__sub { margin-bottom: 16px; font-size: 13px; line-height: 1.6; font-weight: 600; color: rgb(15 26 43 / .7); }
+.devices__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.device {
+  display: flex; flex-direction: column; gap: 10px; padding: 10px; text-align: start;
+  background: #fff; border: 1px solid var(--card-border); border-radius: 16px; box-shadow: var(--card-shadow);
+}
+.device__thumb {
+  max-width: 120px; aspect-ratio: 1 / 1; margin: 0 auto; overflow: hidden;
+  border: 1px solid rgb(15 26 43 / .12); border-radius: 12px; background: #fff;
+}
+.device__thumb img { width: 100%; height: 100%; object-fit: contain; }
+.device__body { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.device__name { font-size: 14px; line-height: 1.4; font-weight: 700; }
+.device__model { font-size: 12px; font-weight: 600; color: #6b7280; text-align: end; }
+.device__price { margin-bottom: 8px; font-size: 13px; font-weight: 600; color: rgb(15 26 43 / .8); }
+.device__price strong { color: var(--mint); font-weight: 800; }
+.devices .btn { width: 100%; margin-top: auto; padding: 8px 6px; font-size: 13px; border-radius: 10px; box-shadow: var(--shadow-sm); }
+
 /* ---------- Current customers ---------- */
 .customers { padding: 32px 0; }
 .customers__gallery { display: flex; flex-direction: column; gap: 10px; }
@@ -335,6 +356,18 @@ video.customers__main-item { object-fit: contain; } /* full video visible, lette
   .price__list { font-size: 15px; margin-top: 20px; }
   .price__savings { font-size: 14px; margin-top: 14px; }
   .pricing__note { margin: 0; padding: 0; background: none; border: 0; box-shadow: none; font-size: 16px; color: rgb(15 26 43 / .75); }
+
+  /* Optional add-ons: compact horizontal cards, buttons kept smaller than the hero ones */
+  .devices { padding: 64px 0; }
+  .devices .h2 { margin-bottom: 8px; }
+  .devices__sub { margin-bottom: 32px; font-size: 16px; }
+  .devices__grid { gap: 20px; }
+  .device { flex-direction: row; align-items: center; gap: 16px; padding: 16px; }
+  .device__thumb { width: 112px; flex: none; margin: 0; }
+  .device__name { font-size: 17px; }
+  .device__price { font-size: 14px; }
+  .devices .btn { width: auto; align-self: flex-start; padding: 8px 14px; font-size: 14px; }
+  .devices .btn .ico { width: 16px; height: 16px; }
 
   /* Current customers */
   .customers { padding: 64px 0; }
