@@ -74,6 +74,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 /* ---------- Top bar (desktop only) ---------- */
 .topbar { display: none; }
+.topbar__nav { display: none; } /* section links: shown from 1200px only */
 
 /* ---------- Bottom bar (mobile only) ---------- */
 .bottombar {
@@ -293,7 +294,7 @@ video.customers__main-item { object-fit: contain; } /* full video visible, lette
 
   .btn { padding: 10px 24px; font-size: 16px; gap: 8px; }
 
-  /* Top bar: logo right, two buttons left, no menu */
+  /* Top bar: logo right, two buttons left (section links between them from 1200px) */
   .topbar {
     display: block; position: sticky; top: 0; z-index: 50;
     background: rgb(230 248 244 / .9);
@@ -303,6 +304,8 @@ video.customers__main-item { object-fit: contain; } /* full video visible, lette
   .topbar__inner { max-width: 1240px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
   .topbar__actions { display: flex; align-items: center; gap: 12px; }
   .topbar .confirm--float { top: calc(100% + 8px); left: 24px; right: auto; width: max-content; max-width: calc(100% - 48px); font-size: 14px; }
+  /* Sticky top bar height (12 + 44 + 12 + 1px border): keeps section headings clear of it on anchor jumps */
+  #features, #pricing, #devices, #faq, #contact { scroll-margin-top: 69px; }
 
   /* Hero */
   .hero { background: none; }
@@ -411,6 +414,13 @@ video.customers__main-item { object-fit: contain; } /* full video visible, lette
   .hero__text .cta .ico { width: 20px; height: 20px; }
   .features__grid { grid-template-columns: repeat(3, 1fr); }
   .card--wide { grid-column: span 3; width: 66.6667%; margin-inline: auto; }
+}
+/* Top bar section links: only from 1200px, where they fit between the logo and the two buttons */
+@media (min-width: 1200px) {
+  .topbar__nav { display: flex; align-items: center; gap: 24px; }
+  .topbar__nav a { font-size: 15px; line-height: 20px; font-weight: 700; color: rgb(15 26 43 / .8); text-decoration: none; white-space: nowrap; transition: color .15s; }
+  .topbar__nav a:hover { color: var(--mint); }
+  .topbar__nav a:focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; border-radius: 4px; }
 }
 @media (min-width: 1280px) {
   .hero__title { font-size: 48px; }

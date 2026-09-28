@@ -62,7 +62,7 @@
     </symbol>
   </svg>
 
-  <!-- Desktop (>=900px): slim sticky top bar. Logo + the two buttons only, not a menu. -->
+  <!-- Desktop (>=900px): slim sticky top bar. Logo + the two buttons; in-page section links from 1200px. -->
   <header class="topbar" data-dl-scope>
     <div class="topbar__inner">
       <a href="#top" class="brand">
@@ -72,6 +72,13 @@
           <span class="brand__ar">سيلزي</span>
         </span>
       </a>
+      <nav class="topbar__nav" aria-label="أقسام الصفحة">
+        <a href="#features">المميزات</a>
+        <a href="#pricing">الباقات والأسعار</a>
+        <a href="#devices">أجهزة مكمّلة</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
       <div class="topbar__actions">
         <a class="btn btn--download" data-download href="#"><svg class="ico" aria-hidden="true">
             <use href="#i-download" />
@@ -135,7 +142,7 @@
     </section>
 
     <!-- 2. Features -->
-    <section class="features">
+    <section class="features" id="features">
       <div class="container">
         <h2 class="h2 h2--start">مميزات برنامج سيلزي</h2>
         <div class="features__grid">
@@ -250,7 +257,7 @@
     </section>
 
     <!-- 3. Pricing -->
-    <section class="pricing">
+    <section class="pricing" id="pricing">
       <div class="container container--narrow">
         <h2 class="h2 h2--center">باقات الأسعار</h2>
         <div class="pricing__grid">
@@ -451,7 +458,7 @@
     </section>
 
     <!-- 6. FAQ -->
-    <section class="faq">
+    <section class="faq" id="faq">
       <div class="container container--faq">
         <h2 class="h2 h2--center">الأسئلة الشائعة</h2>
         <div class="faq__list">
@@ -475,7 +482,7 @@
   </main>
 
   <!-- 6. Footer -->
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div class="footer__inner">
       <div class="footer__brand">
         <div class="brand brand--footer">
